@@ -1,0 +1,38 @@
+﻿@model AdminDonationDto
+<div id="istek" class="tab">
+    <form method="post" id="form2" asp-action="CreateDonation" asp-controller="AdminPages">
+        <div class="form-group">
+            <label>Alıcı TCKN:</label>
+            <input type="text" placeholder="Alıcının TCKN'sini girin." name="tckn">
+        </div>
+        <div class="form-group">
+            <label for="tcno">Bağış Türü:</label>
+            <select name="DonationTypeId" asp-for="DonationTypeId">
+                <option value="" selected disabled>Seçiniz</option>
+                <option value="1">Tam Kan Bağışı</option>
+                <option value="2">Kök Hücre</option>
+                <option value="3">Eritrosit</option>
+                <option value="4">Trombosit</option>
+                <option value="5">Plazma</option>
+                
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="hastane_adi">Hastane:</label>
+            <select name="HospitalId" asp-for="HospitalId">
+                <option value="" selected disabled>Seçiniz</option>
+                @foreach (var item in ViewBag.HospitalList)
+                {
+                    <option value="@item.ID">@item.HospitalName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="bagis_bilgisi">İhtiyaç Miktarı:</label>
+            <input type="number" asp-for="NecessityAmount">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Gönder">
+        </div>
+    </form>
+</div>

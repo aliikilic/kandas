@@ -1,0 +1,53 @@
+﻿@model AdminRecepientDto
+<div id="alici" class="tab active">
+    <form method="post" id="form1" asp-action="CreateRecepient" asp-controller="AdminPages">
+        <div class="form-group">
+            <label>TC No:</label>
+            <input type="text" placeholder="Alıcının TC Kimlik numarasını girin." asp-for="TcNo">
+            <span asp-validation-for="TcNo"></span>
+        </div>
+        <div class="form-group">
+            <label for="dogum_yeri">Doğum Tarihi:</label>
+            <input type="date" placeholder="Alıcının doğum tarihini seçin." asp-for="BirthDate">
+            <span asp-validation-for="BirthDate"></span>
+        </div>
+        <div class="form-group">
+            <label for="tcno">İsim: </label>
+            <input type="text" placeholder="Alıcının ismini girin." asp-for="Name">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label for="tcno">Soyisim: </label>
+            <input type="text" placeholder="Alıcının soyismini girin." asp-for="Surname">
+            <span asp-validation-for="Surname"></span>
+        </div>
+        <div class="form-group">
+            <label for="tcno" name="birthplace">Doğum Yeri:</label>
+            <select name="BirthPlaceId" asp-for="BirthPlaceId">
+                <option value="" selected disabled>Seçiniz</option>
+                @foreach (var item in ViewBag.Cities)
+                {
+                    <option value="@item.CityID">@item.CityName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="tcno" name="birthplace">Kan Grubu:</label>
+            <select asp-for="BloodType">
+                <option value="" selected disabled>Seçiniz</option>
+                <option value="A RH+">A RH+</option>
+                <option value="A RH-">A RH-</option>
+                <option value="B RH+">B RH+</option>
+                <option value="B RH-">B RH-</option>
+                <option value="AB RH+">AB RH+</option>
+                <option value="AB RH-">AB RH-</option>
+                <option value="0 RH+">0 RH+</option>
+                <option value="0 RH-">0 RH-</option>
+            </select>
+            <span asp-validation-for="BloodType"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Gönder" />
+        </div>
+    </form>
+</div>

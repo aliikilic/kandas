@@ -1,0 +1,73 @@
+﻿@model List<UserNotificationDto>;
+<div class="u-gutter-0 u-layout">
+    <div class="u-layout-row">
+        <div class="u-align-center u-container-style u-layout-cell u-palette-5-dark-3 u-size-15 u-layout-cell-1">
+            <div class="u-container-layout u-container-layout-1">
+                <div class="custom-expanded u-container-style u-group u-palette-1-base u-preserve-proportions u-radius u-shape-round u-group-1">
+                    <div class="u-container-layout u-container-layout-2">
+                        <p class="u-align-center u-text u-text-default u-text-1">Tam Kan Bağışları </p>
+                    </div>
+                </div>
+                <div class="custom-expanded u-container-style u-group u-palette-1-base u-radius u-shape-round u-group-2">
+                    <div class="u-container-layout u-container-layout-3">
+                        <p class="u-align-center u-text u-text-default u-text-2">Diğer Türlerden Bağışlar </p>
+                    </div>
+                </div>
+
+                
+                @foreach (var item in Model)
+                {
+                    <div class="u-container-style u-expanded-width u-group u-palette-1-base u-preserve-proportions u-radius u-shape-round u-group-3">
+                        <div class="u-container-layout u-container-layout-4">
+                            <div class="custom-expanded u-container-style u-group u-shape-rectangle u-group-4">
+                                <div class="u-container-layout">
+                                    <p class="u-align-left u-text u-text-3">
+                                        <span class="u-file-icon u-icon">
+                                            <img src="images/2895071.png" alt="">
+                                        </span>@item.Hospital.Substring(0,24)...
+                                    </p>
+                                    <p id="hastane_@item.NotificationId" hidden>@item.Hospital</p>
+                                    <p id="hastaneadress_@item.NotificationId" hidden>@item.HospitalAddress</p>
+                                    <p id="miktar_@item.NotificationId" hidden> @item.NecessityAmount</p>
+
+                                    <h6 class="u-align-left u-text u-text-4">Hasta&nbsp; : </h6>
+                                    <h6 name="isim_@item.NotificationId" class="u-align-left u-text u-text-5">@item.Name.Substring(0,1).@item.Surname.Substring(0,1)</h6>
+                                    <p id="isimsoyisim_@item.NotificationId" class="u-align-left u-text u-text-5" hidden> @item.Name @item.Surname</p>
+                                    
+                                    <h6 class="u-align-left u-text u-text-6">Kan : </h6>
+                                    <h6 class="u-align-left u-text u-text-7">@item.BloodType </h6>
+                                    <p id="kangrubu_@item.NotificationId" hidden>@item.BloodType</p>
+                                    
+                                    <h6 class="u-align-left u-text u-text-8">Tür&nbsp; : ​&nbsp;</h6>
+                                    <h6 class="u-align-left u-text u-text-9">@item.DonationType</h6>
+                                    <p id="bagisturu_@item.NotificationId" hidden>@item.DonationType</p>
+
+                                    <h6 class="u-align-left u-text u-text-10">@item.NotificationTime</h6>
+                                    <p id="saat_@item.NotificationId" hidden>@item.NotificationTime</p>
+
+                                    <a href="#" onclick= "verigetir(@item.NotificationId)"
+                                       class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-none u-radius u-btn-1">
+                                        Kabul
+                                        Et
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-preserve-proportions-child" style="padding-top: 26.54%;"></div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+        
+        <div class="u-container-layout u-container-layout-20">
+            <div class="u-expanded u-grey-light-2 u-map">
+                <div class="embed-responsive">
+                    <iframe class="embed-responsive-item"
+                            src="https://maps.google.com/maps?output=embed&amp;q=Kad%C4%B1k%C3%B6y&amp;z=13&amp;t=m"
+                            data-map="JTdCJTIycG9zaXRpb25UeXBlJTIyJTNBJTIybWFwLXBvaW50JTIyJTJDJTIyYWRkcmVzcyUyMiUzQSUyMkthZCVDNCVCMWslQzMlQjZ5JTIyJTJDJTIyem9vbSUyMiUzQTEzJTJDJTIydHlwZUlkJTIyJTNBJTIycm9hZCUyMiUyQyUyMmxhbmclMjIlM0FudWxsJTJDJTIyYXBpS2V5JTIyJTNBbnVsbCUyQyUyMm1hcmtlcnMlMjIlM0ElNUIlNUQlN0Q="></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

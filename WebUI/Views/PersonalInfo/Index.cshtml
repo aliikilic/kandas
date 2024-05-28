@@ -1,0 +1,363 @@
+﻿@model PersonalInfoDto;
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="tr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Profil Bilgileri</title>
+    <link rel="stylesheet" href="/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="/css/Profil-Bilgileri.css" media="screen">
+    
+    <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+
+
+
+   
+    
+</head>
+<body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="tr">
+    @await Html.PartialAsync("/Views/DefaultPartials/TopBarPartial.cshtml")
+
+    <section class="u-clearfix u-section-1" id="sec-5bfe">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-form u-form-radios-spacing-10 u-form-1">
+                <form method="post" asp-action="CreateInformation" asp-controller="PersonalInfo" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
+                    @*ad*@
+                    <div class="u-form-group u-form-name u-form-partition-factor-2 u-label-top u-form-group-1">
+                        <label for="name-6133" class="u-label u-label-1">Ad :</label>
+                        <input type="text" placeholder="Adınızı Girin" id="name-6133" class="u-input u-input-rectangle u-input-1" asp-for="Name" required="">
+                    </div>
+                    
+                    @*soyad*@
+                    <div class="u-form-group u-form-name u-form-partition-factor-2 u-label-top u-form-group-2">
+                        <label for="name-6133" class="u-label u-label-2">Soyad :</label>
+                        <input type="text" placeholder="Soyadınızı Girin" id="name-6133" class="u-input u-input-rectangle u-input-2" asp-for="Surname" required="">
+                    </div>
+                    @*tckn*@
+                    <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-3">
+                        <label for="phone-aa41" class="u-label u-label-3"> Tc Kimlik No : </label>
+                        <input type="text" placeholder="Türkiye Cumhuriyeti Kimlik Numaranızı Girin" class="u-input u-input-rectangle u-input-3" asp-for="TcNo" required="required" maxlength="11">
+                    </div>
+                    @*doğum tarihi*@
+                    <div class="u-form-date u-form-group u-form-partition-factor-2 u-label-top u-form-group-4">
+                        <label for="date-9998" class="u-label u-label-4">Doğum Tarihi :</label>
+                        <input type="text" placeholder="GG/AA/YYYY" id="date-9998"  class="u-input u-input-rectangle u-input-4" asp-for="BirthDate" required="" data-date-format="dd/mm/yyyy">
+
+                    </div>
+
+                    <div class="u-form-group u-form-input-layout-horizontal u-form-partition-factor-2 u-form-radiobutton u-label-top u-form-group-5">
+                        @*cinsiyet*@
+                        <label class="u-label u-label-5">Cinsiyet : </label>
+                        <div class="u-form-radio-button-wrapper">
+                            <div class="u-input-row">
+                                <input id="field-f0f4" type="radio"  value="true" class="u-field-input" data-calc="erkek" asp-for="Gender" style="">
+                                <label class="u-field-label" for="field-f0f4" style="letter-spacing: 0px;">Erkek</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-b08b" type="radio"  value="false" class="u-field-input" data-calc="kadın" asp-for="Gender" style="">
+                                <label class="u-field-label" for="field-b08b" style="letter-spacing: 0px;">Kadın</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-form-group u-form-input-layout-horizontal u-form-partition-factor-2 u-form-radiobutton u-label-top u-form-group-6">
+                        @*medeni durum*@
+                        <label class="u-label u-label-6">Medeni Durum :</label>
+                        <div class="u-form-radio-button-wrapper">
+                            <div class="u-input-row">
+                                <input id="field-3d1c" type="radio" value="true" class="u-field-input" asp-for="Marriage" data-calc="evli">
+                                <label class="u-field-label" for="field-3d1c" style="letter-spacing: 0px;">Evli</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-ece9" type="radio"  value="false" class="u-field-input" asp-for="Marriage" data-calc="bekar">
+                                <label class="u-field-label" for="field-ece9" style="letter-spacing: 0px;">Bekar</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    @*meslek*@
+                    <div class="u-form-group u-label-top u-form-group-7">
+                        <label for="text-f91e" class="u-label u-label-7">Meslek : </label>
+                        <input type="text" placeholder="Mesleğinizi Girin " id="text-f91e" class="u-input u-input-rectangle u-input-5" asp-for="Job">
+                    </div>
+                    
+                    
+                    <div class="u-form-group u-form-select u-label-top u-form-group-8">
+                        
+                        @*eğitim durumu*@
+                        <label for="select-5632" class="u-label u-label-8">Eğitim Durumu : </label>
+                        <div class="u-form-select-wrapper">
+                            <select id="select-5632" class="u-input u-input-rectangle u-input-6" asp-for="PersonEducationStatusId">
+                                <option value="1">Yok</option>
+                                <option value="2">İlkokul</option>
+                                <option value="3">Ortaokul</option>
+                                <option value="4">Lise</option>
+                                <option value="5">Önlisans</option>
+                                <option value="6">Lisan</option>
+                                <option value="7">Yüksek Lisans</option>
+                                <option value="8">Doktora</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div class="u-border-10 u-border-grey-dark-1 u-form-group u-form-line u-line u-line-horizontal u-line-1"></div>
+                    <p class="u-align-center u-form-group u-form-text u-text u-text-1">Bağış bildirimlerini alabilmek için ikamet bilgilerinizi doldurunuz. </p>
+                    @* il *@
+                    <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-11">
+                        <label for="select-8599" class="u-label u-label-9">İl :</label>
+                        <div class="u-form-select-wrapper">
+                            <select id="il" name="CityId" class="u-input u-input-rectangle u-input-7" asp-for="CityId">
+                                
+                            </select>
+                            <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+                        </div>
+                    </div>
+                    @* ilçe *@
+                    <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-12">
+                        <label for="select-59c5" class="u-label u-label-10">İlçe :</label>
+                        <div class="u-form-select-wrapper">
+                            <select id="ilce" name="ResidanceDistrictId" class="u-input u-input-rectangle u-input-8" asp-for="ResidanceDistrictId">
+
+                            </select>
+                            <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+                        </div>
+                    </div>
+                    @* mahalle *@
+                    <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-13">
+                        <label for="select-898e" class="u-label u-label-11">Mahalle :</label>
+                        <div class="u-form-select-wrapper">
+                            <select id="mahalle" name="ResidanceNeighborhoodId" class="u-input u-input-rectangle u-input-9" asp-for="ResidanceNeighborhoodId"></select>
+                            <svg class="u-caret u-caret-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" style="fill:currentColor;" xml:space="preserve"><polygon class="st0" points="8,12 2,4 14,4 "></polygon></svg>
+                        </div>
+                    </div>
+                    @*cadde sokak*@
+                    <div class="u-form-group u-form-textarea u-label-top u-form-group-14">
+                        <label for="textarea-a3f7" class="u-label u-label-12">Cadde/Sokak</label>
+                        <textarea rows="2" cols="50" id="textarea-a3f7" name="adres" class="u-input u-input-rectangle u-input-10" required="" placeholder="Cadde , sokak , bina bilgileri"></textarea>
+                    </div>
+                    
+                    @* kan grubu seçimi *@
+                    <div class="u-form-group u-form-input-layout-horizontal u-form-radiobutton u-label-top u-form-group-15">
+                        <label class="u-label u-label-13">Kan Grubu : </label>
+                        <div class="u-form-radio-button-wrapper">
+                            <div class="u-input-row">
+                                <input id="field-abcb" asp-for="BloodType" type="radio"  value="A RH+" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-abcb" style="letter-spacing: 0px;">A RH +</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-aa35" asp-for="BloodType" type="radio" value="A RH-" class="u-field-input"  required="required">
+                                <label class="u-field-label" for="field-aa35" style="letter-spacing: 0px;">A RH -</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-aa64" asp-for="BloodType" type="radio"  value="B RH+" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-aa64" style="letter-spacing: 0px;">B RH +</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-bb18" asp-for="BloodType"  type="radio"  value="B RH-" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-bb18">B RH -</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-108d" asp-for="BloodType"  type="radio"  value="AB RH+" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-108d">AB RH +</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-fac6" asp-for="BloodType" type="radio"  value="AB RH-" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-fac6">AB RH -</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-47b8" asp-for="BloodType"  type="radio"  value="0 RH+" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-47b8">0 RH +</label>
+                            </div>
+                            <div class="u-input-row">
+                                <input id="field-ea53" asp-for="BloodType" type="radio" value="0 RH-" class="u-field-input" required="required">
+                                <label class="u-field-label" for="field-ea53">0 RH -</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-align-right u-form-group u-form-submit u-label-top">
+                        <input type="submit" value="submit" class="u-form-control-hidden">
+                        <a href="#" class="u-btn u-btn-submit u-button-style u-btn-1">Kaydet</a>
+                    </div>
+                </form>
+            </div>
+            <p class="u-align-left u-text u-text-default u-text-2">Bağışçı sorgulama formunu doldurmak için tıklayın </p>
+            <a href="/Inquiryform/Index" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius u-btn-2" target="_blank">Sorgu Formuna Git</a>
+        </div>
+    </section>
+   
+
+
+
+<script>
+
+        $(document).ready(function () {
+            var sehirler = @Html.Raw(ViewBag.Cities);
+            var ilceler = @Html.Raw(ViewBag.Districts);
+            var mahalleler = @Html.Raw(ViewBag.Neighborhoods);
+
+            // Şehir dropdown'u doldur
+            $("#il").append("<option value=''>Seçiniz</option>");
+            $.each(sehirler, function (index, sehir) {
+                $("#il").append("<option value='" + sehir.CityID + "'>" + sehir.CityName + "</option>");
+            });
+
+            // İlçe dropdown'u doldur
+            $("#il").change(function () {
+                var secilenIlId = $(this).val();
+                $("#ilce").empty().append("<option value=''>Seçiniz</option>");
+                $.each(ilceler, function (index, ilce) {
+                    if (ilce.CityID == secilenIlId) {
+                        $("#ilce").append("<option value='" + ilce.DistrictID + "'>" + ilce.DistrictName + "</option>");
+                    }
+                });
+                $("#mahalle").empty().append("<option value=''>Seçiniz</option>");
+            });
+
+            // Mahalle dropdown'u doldur
+            $("#ilce").change(function () {
+                var secilenIlceId = $(this).val();
+                $("#mahalle").empty().append("<option value=''>Seçiniz</option>");
+                $.each(mahalleler, function (index, mahalle) {
+                    if (mahalle.DistrictId == secilenIlceId) {
+                        $("#mahalle").append("<option value='" + mahalle.NeighborhoodId + "'>" + mahalle.NeighborhoodName + "</option>");
+                    }
+                });
+            });
+        });
+
+        // $(document).ready(function () {
+        //     // Veritabanından gelen şehir, ilçe ve mahalle verilerini al
+        //     var sehirler = @Html.Raw(ViewBag.Cities);
+        //     var ilceler = @Html.Raw(ViewBag.Districts);
+        //     var mahalleler = @Html.Raw(ViewBag.Neighborhoods);
+
+        //     console.log("Şehirler:", sehirler); // Debugging için
+        //     console.log("İlçeler:", ilceler); // Debugging için
+        //     console.log("Mahalleler:", mahalleler); // Debugging için
+
+        //     // Şehir dropdown'u doldur
+        //     $("#il").empty();
+        //     $("#il").append($("<option value=''>").text("Seçiniz"));
+
+        //     sehirler.forEach(function (sehir) {
+        //         $("#il").append($("<option>").val(sehir.id).text(sehir.name));
+        //     });
+
+        //     // İl dropdown'u değiştiğinde tetiklenir
+        //     $("#il").change(function () {
+        //         var secilenIlId = $(this).val();
+
+        //         // İlçe dropdown'unu temizle ve etkinleştir
+        //         $("#ilce").empty().prop("disabled", false);
+        //         $("#ilce").append($("<option value=''>").text("Seçiniz"));
+
+        //         // İlçeleri filtrele
+        //         var filteredIlceler = ilceler.filter(function (ilce) {
+        //             return ilce.cityId == secilenIlId;
+        //         });
+
+        //         filteredIlceler.forEach(function (ilce) {
+        //             $("#ilce").append($("<option>").val(ilce.id).text(ilce.name));
+        //         });
+
+        //         // Mahalle dropdown'unu temizle ve devre dışı bırak
+        //         $("#mahalle").empty().prop("disabled", true);
+        //     });
+
+        //     // İlçe dropdown'u değiştiğinde tetiklenir
+        //     $("#ilce").change(function () {
+        //         var secilenIlceId = $(this).val();
+
+        //         // Mahalle dropdown'unu temizle ve etkinleştir
+        //         $("#mahalle").empty().prop("disabled", false);
+        //         $("#mahalle").append($("<option value=''>").text("Seçiniz"));
+
+        //         // Mahalleleri filtrele
+        //         var filteredMahalleler = mahalleler.filter(function (mahalle) {
+        //             return mahalle.districtId == secilenIlceId;
+        //         });
+
+        //         filteredMahalleler.forEach(function (mahalle) {
+        //             $("#mahalle").append($("<option>").val(mahalle.id).text(mahalle.name));
+        //         });
+        //     });
+        // });
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+@*
+        $(document).ready(function () {
+            // Veritabanından gelen şehir, ilçe ve mahalle verilerini al
+            var sehirler = @Html.Raw(ViewBag.Cities);
+            var ilceler = @Html.Raw(ViewBag.Districts);
+            var mahalleler = @Html.Raw(ViewBag.Neighborhoods);
+
+            console.log("Şehirler:", sehirler); // Debugging için
+            console.log("İlçeler:", ilceler); // Debugging için
+            console.log("Mahalleler:", mahalleler); // Debugging için
+
+            // Şehir dropdown'u doldur
+            $("#il").empty();
+            $("#il").append($("<option>").val("").text("Seçiniz"));
+
+            sehirler.forEach(function (sehir) {
+                $("#il").append($("<option>").val(sehir.id).text(sehir.name));
+            });
+
+            // İl dropdown'u değiştiğinde tetiklenir
+            $("#il").change(function () {
+                var secilenIlId = $(this).val();
+
+                // İlçe dropdown'unu temizle ve etkinleştir
+                $("#ilce").empty().prop("disabled", false);
+                $("#ilce").append($("<option>").val("").text("Seçiniz"));
+
+                // İlçeleri filtrele
+                var filteredIlceler = ilceler.filter(function (ilce) {
+                    return ilce.cityId == secilenIlId;
+                });
+
+                filteredIlceler.forEach(function (ilce) {
+                    $("#ilce").append($("<option>").val(ilce.id).text(ilce.name));
+                });
+
+                // Mahalle dropdown'unu temizle ve devre dışı bırak
+                $("#mahalle").empty().prop("disabled", true);
+            });
+
+            // İlçe dropdown'u değiştiğinde tetiklenir
+            $("#ilce").change(function () {
+                var secilenIlceId = $(this).val();
+
+                // Mahalle dropdown'unu temizle ve etkinleştir
+                $("#mahalle").empty().prop("disabled", false);
+                $("#mahalle").append($("<option>").val("").text("Seçiniz"));
+
+                // Mahalleleri filtrele
+                var filteredMahalleler = mahalleler.filter(function (mahalle) {
+                    return mahalle.districtId == secilenIlceId;
+                });
+
+                filteredMahalleler.forEach(function (mahalle) {
+                    $("#mahalle").append($("<option>").val(mahalle.id).text(mahalle.name));
+                });
+            });
+        });
+ *@

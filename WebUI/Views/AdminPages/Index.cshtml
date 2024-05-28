@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css" media="screen">
+    <title>Kandaş Admin</title>
+    <script src="~/js/adminpagescript.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="tabs">
+            <button class="tab-btn" onclick="openTab(event, 'alici')">Alıcı Girişi</button>
+            <button class="tab-btn" onclick="openTab(event, 'istek')">Bağış İstedği Girişi</button>
+        </div>
+
+        @await Html.PartialAsync("/Views/AdminPages/AddRecepient.cshtml")
+        @await Html.PartialAsync("/Views/AdminPages/AddDonation.cshtml")
+
+        
+    </div>
+
+    
+</body>
+</html>
